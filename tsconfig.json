@@ -17,6 +17,8 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/config/*": ["config/*"],
+      "@/pages/*": ["pages/*"],
+      "@/lib/*": ["lib/*"],
       "@/styles/*": ["styles/*"]
     }
   },
