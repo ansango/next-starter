@@ -17,4 +17,4 @@ const siteMetadata = {
   socialBanner: "",
 };
 
-export default siteMetadata;
+module.exports = siteMetadata;

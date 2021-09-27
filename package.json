@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node ./scripts/sitemap",
     "start": "next-remote-watch ./config",
     "lint": "next lint --fix",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
@@ -28,6 +28,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.26.0",
+    "globby": "11.0.3",
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
     "next-remote-watch": "^1.0.0",
