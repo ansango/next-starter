@@ -3,15 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && node ./lib/sitemap",
-    "start": "next-remote-watch ./config",
+    "dev": "i18nexus pull && next dev",
+    "build": "i18nexus pull && next build && node ./lib/sitemap",
+    "start": "i18nexus pull && next-remote-watch ./config",
     "lint": "next lint --fix",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
     "postinstall": "husky install"
   },
   "dependencies": {
     "next": "11.1.2",
+    "next-i18next": "^8.8.0",
     "next-themes": "^0.0.15",
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -30,6 +31,7 @@
     "eslint-plugin-react": "^7.26.0",
     "globby": "11.0.3",
     "husky": "^7.0.2",
+    "i18nexus-cli": "^2.0.2",
     "lint-staged": "^11.1.2",
     "next-remote-watch": "^1.0.0",
     "prettier": "^2.4.1",

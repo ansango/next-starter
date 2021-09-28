@@ -1,18 +1,26 @@
-import PageSeo from "@/components/seo/PageSeo";
 import type { NextPage } from "next";
-
+import PageSeo from "@/components/seo/PageSeo";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["home"])),
+    },
+  };
+}
+
 const Home: NextPage = () => {
+  const { t } = useTranslation();
   return (
     <>
       <PageSeo title="Next.js starter" description="A Next.js Starter" />
       <div className={styles.container}>
         <main className={styles.main}>
-          <h1 className={styles.title}>
-            Welcome to <a href="https://nextjs.org">Next.js!</a>
-          </h1>
+          <h1 className={styles.title}>{t("home:welcome_msg")}</h1>
 
           <p className={styles.description}>
             Get started by editing <code className={styles.code}>pages/index.js</code>
