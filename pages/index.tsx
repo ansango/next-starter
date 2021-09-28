@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import PageSeo from "@/components/seo/PageSeo";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 
 export async function getStaticProps({ locale }: any) {
@@ -15,61 +14,79 @@ export async function getStaticProps({ locale }: any) {
 
 const Home: NextPage = () => {
   const { t } = useTranslation();
+  console.log(t("home:welcome_msg"));
   return (
     <>
       <PageSeo title="Next.js starter" description="A Next.js Starter" />
-      <div className={styles.container}>
-        <main className={styles.main}>
-          <h1 className={styles.title}>{t("home:welcome_msg")}</h1>
+      <></>
 
-          <p className={styles.description}>
-            Get started by editing <code className={styles.code}>pages/index.js</code>
-          </p>
-
-          <div className={styles.grid}>
-            <a href="https://nextjs.org/docs" className={styles.card}>
-              <h2>Documentation &rarr;</h2>
-              <p>Find in-depth information about Next.js features and API.</p>
-            </a>
-
-            <a href="https://nextjs.org/learn" className={styles.card}>
-              <h2>Learn &rarr;</h2>
-              <p>Learn about Next.js in an interactive course with quizzes!</p>
-            </a>
-
-            <a
-              href="https://github.com/vercel/next.js/tree/master/examples"
-              className={styles.card}
-            >
-              <h2>Examples &rarr;</h2>
-              <p>Discover and deploy boilerplate example Next.js projects.</p>
-            </a>
-
-            <a
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              className={styles.card}
-            >
-              <h2>Deploy &rarr;</h2>
-              <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-            </a>
-          </div>
-        </main>
-
-        <footer className={styles.footer}>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Powered by{" "}
-            <span className={styles.logo}>
-              <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-            </span>
-          </a>
-        </footer>
-      </div>
+      <main className={styles.main}>
+        <h1 className={styles.title}>{t("home:welcome_msg")}</h1>
+        <p className={styles.description}>Configuración del starter</p>
+        <ul className={styles.grid}>
+          {tools.map((tool) => (
+            <li key={tool.name} className={styles.card}>
+              <h2>{t(`home:${tool.name}`)}</h2>
+              <p>{t(`home:${tool.description}`)}</p>
+            </li>
+          ))}
+        </ul>
+      </main>
     </>
   );
 };
 
 export default Home;
+
+const tools = [
+  {
+    name: "Next.js",
+    url: "https://nextjs.org/",
+    description: "The React Framework",
+  },
+  {
+    name: "Typescript",
+    url: "https://www.typescriptlang.org/",
+    description: "Typed superset of JavaScript",
+  },
+  {
+    name: "ESLint",
+    url: "https://eslint.org/",
+    description: "Code quality tool",
+  },
+  {
+    name: "Prettier",
+    url: "https://prettier.io/",
+    description: "A code formatter",
+  },
+  {
+    name: "Husky",
+    url: "https://github.com/typicode/husky",
+    description: "Modern native Git hooks",
+  },
+  {
+    name: "Lint-Staged",
+    url: "https://github.com/okonet/lint-staged",
+    description: "Run linters on git staged files",
+  },
+  {
+    name: "next-i18next",
+    url: "https://github.com/isaachinman/next-i18next",
+    description: "Translate your NextJs apps.",
+  },
+  {
+    name: "i18nexus",
+    url: "https://i18nexus.com/",
+    description: "Automate your translations ",
+  },
+  {
+    name: "Sitemap Generator",
+    url: "",
+    description: "Sitemap ready on deploy",
+  },
+  {
+    name: "RSS Generator",
+    url: "",
+    description: "Feed ready on deploy",
+  },
+];
