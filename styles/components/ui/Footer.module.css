@@ -6,4 +6,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
+}
+
+.footer span {
+  margin: 0 0.25rem;
 }

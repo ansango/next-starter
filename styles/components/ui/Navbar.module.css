@@ -11,3 +11,8 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.navbar a {
+  text-transform: uppercase;
+  margin: 0 1rem;
+}
